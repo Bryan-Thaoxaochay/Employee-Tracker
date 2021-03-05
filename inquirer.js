@@ -28,6 +28,12 @@ inquirer
             when: (responses) => responses.purpose === 'Add Employee'
         },
         {
+            name: 'department',
+            type: 'input',
+            message: 'What department are they in?',
+            when: (responses) => responses.purpose === 'Add Employee'
+        },
+        {
             name: 'manager',
             type: 'input',
             message: 'Who is their manager?',

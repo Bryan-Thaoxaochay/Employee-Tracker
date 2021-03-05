@@ -31,3 +31,6 @@ GitHub: https://github.com/Bryan-Thaoxaochay
 
 1. Download the necessary modules and package.json
 2. Create the questions 
+3. Create the connection between JS and SQL
+4. Connect the questions with displaying table data
+- require functions that retrieve data
