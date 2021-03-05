@@ -1,0 +1,54 @@
+const inquirer = require('inquirer');
+
+inquirer
+    .prompt([
+        {
+            name: 'purpose',
+            type: 'list',
+            message: 'What would you like to do?',
+            choices: ['Add Employee', 'Remove Employee', 'Update Employee Role', 'View All Employees']
+        },
+        // Adding an employee - first name, last name, role, manager
+        {
+            name: 'firstName',
+            type: 'input',
+            message: 'What is their first name?',
+            when: (responses) => responses.list === 'Add Employee'
+        },
+        {
+            name: 'lastName',
+            type: 'input',
+            message: 'What is their last name?',
+            when: (responses) => responses.list === 'Add Employee'
+        },
+        {
+            name: 'role',
+            type: 'input',
+            message: 'What is their role?',
+            when: (responses) => responses.list === 'Add Employee'
+        },
+        {
+            name: 'manager',
+            type: 'input',
+            message: 'Who is their manager?',
+            when: (responses) => responses.list === 'Add Employee'
+        },
+        // Removing an employee - a list of who they want to eliminate
+        {
+            name: 'eliminate',
+            type: 'list',
+            message: 'Who do you want to remove?',
+            when: (responses) => responses.list === 'Remove Employee'
+        },
+        // Updating an employee - a list of who they want to update, update employee role
+        {
+            name: 'roleChange',
+            type: 'input',
+            message: 'What would you like to change their role to?',
+            when: (responses) => responses.list === 'Update Employee Role'
+        },
+    ]) // Inquirer
+
+    .then((responses) => {
+
+    })
