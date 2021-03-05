@@ -13,39 +13,39 @@ inquirer
             name: 'firstName',
             type: 'input',
             message: 'What is their first name?',
-            when: (responses) => responses.list === 'Add Employee'
+            when: (responses) => responses.purpose === 'Add Employee'
         },
         {
             name: 'lastName',
             type: 'input',
             message: 'What is their last name?',
-            when: (responses) => responses.list === 'Add Employee'
+            when: (responses) => responses.purpose === 'Add Employee'
         },
         {
             name: 'role',
             type: 'input',
             message: 'What is their role?',
-            when: (responses) => responses.list === 'Add Employee'
+            when: (responses) => responses.purpose === 'Add Employee'
         },
         {
             name: 'manager',
             type: 'input',
             message: 'Who is their manager?',
-            when: (responses) => responses.list === 'Add Employee'
+            when: (responses) => responses.purpose === 'Add Employee'
         },
         // Removing an employee - a list of who they want to eliminate
         {
             name: 'eliminate',
             type: 'list',
             message: 'Who do you want to remove?',
-            when: (responses) => responses.list === 'Remove Employee'
+            when: (responses) => responses.purpose === 'Remove Employee'
         },
         // Updating an employee - a list of who they want to update, update employee role
         {
             name: 'roleChange',
             type: 'input',
             message: 'What would you like to change their role to?',
-            when: (responses) => responses.list === 'Update Employee Role'
+            when: (responses) => responses.purpose === 'Update Employee Role'
         },
     ]) // Inquirer
 
