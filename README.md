@@ -26,3 +26,8 @@ https://github.com/Bryan-Thaoxaochay/Employee-Tracker
 
 Email: bthaoxaochay@gmail.com
 GitHub: https://github.com/Bryan-Thaoxaochay 
+
+## Pseudocode
+
+1. Download the necessary modules and package.json
+2. Create the questions 
