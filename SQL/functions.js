@@ -1,4 +1,4 @@
-// Select an item from a table
+// Selecting
 function getEmployees() {
     let sql = "SELECT * FROM department"; // Code that enters SQL
 
@@ -11,7 +11,7 @@ function getEmployees() {
 };
 // res is an object, and we can parse through it to get specific items
 
-// Adding to the table
+// Adding
 function addEmployee() {
   connection.query( // First Name
     "INSERT INTO employee SET ?",
@@ -60,39 +60,55 @@ function addEmployee() {
   );
 }
 
-// Updating the table
+// Updating
 function updateEmployee() {
-const query = connection.query(
-  "UPDATE table SET ? WHERE ?",
-  [
-  { // Table Values
-    key: "value"
-  },
-  { // Where
-    id: "#"
-  }
-  ],
+  const query = connection.query(
+    "UPDATE role SET ? WHERE ?",
+    [
+    {
+      title: ""
+    },
+    { // Where
+      id: ""
+    }
+    ],
 
-  // Callback
-  function(err, res) {
-    if (err) throw err;
-    console.log(res.affectedRows + " updated");
-  }
-);
+    // Callback
+    function(err, res) {
+      if (err) throw err;
+    }
+  );
 }
 
 // Removing from table
 function removeEmployee(){
-connection.query(
-  "DELETE FROM table WHERE ?", // ? is a parameter, if we need to be more specific
-  {
-    id: "#"
-  },
-  function(err, res) {
-    if (err) throw err;
-    console.log(res.affectedRows + " deleted");
-  }
-);
+  connection.query(
+    "DELETE FROM department WHERE ?",
+    {
+      id: ""
+    },
+    function(err, res) {
+      if (err) throw err;
+    }
+  );
+  connection.query(
+    "DELETE FROM employee WHERE ?",
+    {
+      id: ""
+    },
+    function(err, res) {
+      if (err) throw err;
+    }
+  );
+  connection.query(
+    "DELETE FROM role WHERE ?",
+    {
+      id: ""
+    },
+    function(err, res) {
+      if (err) throw err;
+    }
+  );
 }
 
 
