@@ -1,4 +1,5 @@
 const inquirer = require('inquirer');
+const server = require('./SQL/server');
 
 inquirer
     .prompt([
@@ -56,5 +57,9 @@ inquirer
     ]) // Inquirer
 
     .then((responses) => {
+
+        if (responses.purpose === 'View All Employees') {
+            server.getEmployees;
+        }
 
     })
