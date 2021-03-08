@@ -34,3 +34,22 @@ GitHub: https://github.com/Bryan-Thaoxaochay
 3. Create the connection between JS and SQL
 4. Connect the questions with displaying table data
 - require functions that retrieve data
+- View All Employees
+
+Display id, first name, last name, title, department, salary, manager
+
+- Add Employee
+
+Adding data entered into the table
+
+- Remove Employee
+
+Display all employees
+Delete employee chosen from the table
+
+- Update Employee Role
+
+Display all employees
+Employee chosen
+Display role
+Ask to which role they want to change to
