@@ -55,15 +55,15 @@ function employeeManagement() {
                 message: 'What would you like to change their role to?',
                 when: (responses) => responses.purpose === 'Update Employee Role'
             },
-        ]) // Inquirer
+        ]) // .prompt
 
         .then((responses) => {
 
             if (responses.purpose === 'View All Employees') {
-                server.getEmployees;
+                server();
             }
 
-        })
+        }) // .then
 }
 
 employeeManagement();

@@ -25,7 +25,7 @@ function server() {
 
   // Select an item from a table
   function getEmployees() {
-    let sql = "SELECT * FROM department"; // Code that enters SQL
+    let sql = "SELECT employee.id, employee.first_name, employee.last_name, role.title, role.salary, department.name FROM employee LEFT JOIN role ON role.id = employee.id JOIN department ON role.id = department.id"; // Code that enters SQL
 
     // Getting into MySQL
     connection.query(sql, function(err, res) {
@@ -35,7 +35,5 @@ function server() {
     });
   }
 }
-
-server();
 
 module.exports = server;

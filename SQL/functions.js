@@ -1,11 +1,11 @@
 // Selecting
 function getEmployees() {
-    let sql = "SELECT * FROM department"; // Code that enters SQL
+    let sql = "SELECT * FROM role"; // Code that enters SQL
 
     // Getting into MySQL
     connection.query(sql, function(err, res) {
           if (err) throw err; // Catching error
-          console.table(res); // Returns the response
+          console.log(res); // Returns the response
           //  connection.end();
     });
 };
