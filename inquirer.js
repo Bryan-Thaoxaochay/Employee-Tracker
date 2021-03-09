@@ -25,14 +25,22 @@ function employeeManagement() {
             },
             {
                 name: 'role',
-                type: 'input',
+                type: 'list',
                 message: 'What is their role?',
+                choices: ['Coach', 'Striker', 'Winger', 'Centre Midfielder', 'Outside Midfielder', 'Centreback', 'Fullback', 'Keeper'],
                 when: (responses) => responses.purpose === 'Add Employee'
             },
             {
                 name: 'department',
-                type: 'input',
+                type: 'list',
                 message: 'What department are they in?',
+                choices: ['Management', 'Attacking', 'Midfield', 'Defending'],
+                when: (responses) => responses.purpose === 'Add Employee'
+            },
+            {
+                name: 'salary',
+                type: 'input',
+                message: 'What is there salary? (No commas)',
                 when: (responses) => responses.purpose === 'Add Employee'
             },
             {
@@ -46,7 +54,7 @@ function employeeManagement() {
                 name: 'eliminate',
                 type: 'list',
                 message: 'Who do you want to remove?',
-                choices: [],
+                choices: [ ],
                 when: (responses) => responses.purpose === 'Remove Employee'
             },
             // Updating an employee - a list of who they want to update, update employee role
@@ -68,17 +76,18 @@ function employeeManagement() {
             // Add
             if (responses.purpose === 'Add Employee') {
 
-                async function variables(){
+                async function employeeInfo(){
                     let firstName = responses.firstName;
                     let lastName = responses.lastName;
                     let role = responses.role;
                     let department = responses.department;
+                    let salary = responses.salary;
                     let manager = responses.manager;
 
-                    await server.add(firstName, lastName, role, department, manager);
+                    await server.add(firstName, lastName, role, department, salary, manager);
                 }
 
-                variables();
+                employeeInfo();
 
             }
 
