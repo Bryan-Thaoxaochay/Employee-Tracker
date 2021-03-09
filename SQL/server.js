@@ -1,17 +1,10 @@
 const mysql = require('mysql');
 
 function get() {
-  // create the connection information for the sql database
   const connection = mysql.createConnection({
     host: 'localhost',
-
-    // Your port; if not 3306
     port: 3306,
-
-    // Your username
     user: 'root',
-
-    // Your password
     password: 'thisiscomplicated100%',
     database: 'employees_db',
   });
@@ -31,7 +24,7 @@ function get() {
     connection.query(sql, function(err, res) {
           if (err) throw err; // Catching error
           console.table(res); // Returns the response
-          //  connection.end();
+          connection.end();
     });
   }
 }
@@ -41,11 +34,8 @@ function get() {
 function add() {
   const connection = mysql.createConnection({
     host: 'localhost',
-
     port: 3306,
-
     user: 'root',
-
     password: 'thisiscomplicated100%',
     database: 'employees_db',
   });
@@ -103,21 +93,16 @@ function add() {
         if(err) throw err;
       }
     );
+    
+    connection.end();
   }
 }
 
 function update() {
-  // create the connection information for the sql database
   const connection = mysql.createConnection({
     host: 'localhost',
-
-    // Your port; if not 3306
     port: 3306,
-
-    // Your username
     user: 'root',
-
-    // Your password
     password: 'thisiscomplicated100%',
     database: 'employees_db',
   });
@@ -145,23 +130,19 @@ function update() {
       function(err, res) {
         if (err) throw err;
       }
+      
     );
+
+    connection.end();
   }
 }
 
 
 function remove() {
-  // create the connection information for the sql database
   const connection = mysql.createConnection({
     host: 'localhost',
-
-    // Your port; if not 3306
     port: 3306,
-
-    // Your username
     user: 'root',
-
-    // Your password
     password: 'thisiscomplicated100%',
     database: 'employees_db',
   });
@@ -171,6 +152,7 @@ function remove() {
     console.log(`connected as id ${connection.threadId}\n`);
     removeEmployee();
   });
+
   // Removing from table
   function removeEmployee(){
     connection.query(
@@ -200,6 +182,8 @@ function remove() {
         if (err) throw err;
       }
     );
+
+    connection.end();
   }
 }
 
@@ -209,5 +193,5 @@ module.exports = {
   add,
   update,
   remove
-  
+
 }
