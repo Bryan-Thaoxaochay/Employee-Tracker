@@ -46,6 +46,7 @@ function employeeManagement() {
                 name: 'eliminate',
                 type: 'list',
                 message: 'Who do you want to remove?',
+                choices: [],
                 when: (responses) => responses.purpose === 'Remove Employee'
             },
             // Updating an employee - a list of who they want to update, update employee role
@@ -66,7 +67,19 @@ function employeeManagement() {
 
             // Add
             if (responses.purpose === 'Add Employee') {
-                server.add();
+
+                async function variables(){
+                    let firstName = responses.firstName;
+                    let lastName = responses.lastName;
+                    let role = responses.role;
+                    let department = responses.department;
+                    let manager = responses.manager;
+
+                    await server.add(firstName, lastName, role, department, manager);
+                }
+
+                variables();
+
             }
 
             // Delete

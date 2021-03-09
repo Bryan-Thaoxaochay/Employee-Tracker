@@ -31,7 +31,7 @@ function get() {
 
 
 
-function add() {
+function add(firstName, lastName, role, department, manager) {
   const connection = mysql.createConnection({
     host: 'localhost',
     port: 3306,
@@ -51,7 +51,7 @@ function add() {
     connection.query( // First Name
       "INSERT INTO employee SET ?",
       {
-        first_name: ""
+        first_name: firstName
       },
       function(err, res) {
         if(err) throw err;
@@ -60,7 +60,7 @@ function add() {
     connection.query( // Last Name
       "INSERT INTO employee SET ?",
       {
-        last_name: ""
+        last_name: lastName
       },
       function(err, res) {
         if(err) throw err;
@@ -69,7 +69,7 @@ function add() {
     connection.query( // Role
       "INSERT INTO role SET ?",
       {
-        title: ""
+        title: role
       },
       function(err, res) {
         if(err) throw err;
@@ -78,7 +78,7 @@ function add() {
     connection.query( // Department
       "INSERT INTO department SET ?",
       {
-        name: ""
+        name: department
       },
       function(err, res) {
         if(err) throw err;
@@ -87,7 +87,7 @@ function add() {
     connection.query( // Manager
       "INSERT INTO employee SET ?",
       {
-        manager_id: ""
+        manager_id: manager
       },
       function(err, res) {
         if(err) throw err;
