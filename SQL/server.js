@@ -18,7 +18,7 @@ function get() {
 
   // Getting
   function getEmployees() {
-    let sql = "SELECT employee.id, employee.first_name, employee.last_name, role.title, role.salary, department.name FROM employee LEFT JOIN role ON role.id = employee.id JOIN department ON role.id = department.id"; // Code that enters SQL
+    let sql = "SELECT employee.id, employee.first_name, employee.last_name, role.title, role.salary, department.department FROM employee LEFT JOIN role ON role.id = employee.id JOIN department ON role.id = department.id"; // Code that enters SQL
 
     // Getting into MySQL
     connection.query(sql, function(err, res) {
@@ -31,7 +31,7 @@ function get() {
 
 
 
-function add(firstName, lastName, role, department, manager) {
+function add(firstName, lastName, role, department, salary, manager) {
   const connection = mysql.createConnection({
     host: 'localhost',
     port: 3306,
@@ -70,6 +70,15 @@ function add(firstName, lastName, role, department, manager) {
       "INSERT INTO role SET ?",
       {
         title: role
+      },
+      function(err, res) {
+        if(err) throw err;
+      }
+    );
+    connection.query( // Salary
+      "INSERT INTO role SET ?",
+      {
+        title: salary
       },
       function(err, res) {
         if(err) throw err;
