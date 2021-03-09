@@ -59,8 +59,24 @@ function employeeManagement() {
 
         .then((responses) => {
 
+            // Get
             if (responses.purpose === 'View All Employees') {
-                server();
+                server.get();
+            }
+
+            // Add
+            if (responses.purpose === 'Add Employee') {
+                server.add();
+            }
+
+            // Delete
+            if (responses.purpose === 'Remove Employee') {
+                server.delete();
+            }
+
+            // Update
+            if (responses.purpose === 'Update Employee Role') {
+                server.update();
             }
 
         }) // .then

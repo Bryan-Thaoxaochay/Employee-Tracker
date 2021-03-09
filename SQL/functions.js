@@ -1,14 +1,14 @@
-// Selecting
-function getEmployees() {
-    let sql = "SELECT * FROM role"; // Code that enters SQL
+  // Getting
+  function getEmployees() {
+    let sql = "SELECT employee.id, employee.first_name, employee.last_name, role.title, role.salary, department.name FROM employee LEFT JOIN role ON role.id = employee.id JOIN department ON role.id = department.id"; // Code that enters SQL
 
     // Getting into MySQL
     connection.query(sql, function(err, res) {
           if (err) throw err; // Catching error
-          console.log(res); // Returns the response
+          console.table(res); // Returns the response
           //  connection.end();
     });
-};
+  }
 // res is an object, and we can parse through it to get specific items
 
 // Adding
