@@ -27,7 +27,7 @@ function employeeManagement() {
                 name: 'role',
                 type: 'list',
                 message: 'What is their role?',
-                choices: ['Coach', 'Striker', 'Winger', 'Centre Midfielder', 'Outside Midfielder', 'Centreback', 'Fullback', 'Keeper'],
+                choices: ['Coach', 'Striker', 'Winger', 'Centre-Midfielder', 'Outside-Midfielder', 'Centreback', 'Fullback', 'Keeper'],
                 when: (responses) => responses.purpose === 'Add Employee'
             },
             {
