@@ -51,16 +51,9 @@ function add(firstName, lastName, role, department, salary, manager) {
     connection.query( // First Name
       "INSERT INTO employee SET ?",
       {
-        first_name: firstName
-      },
-      function(err, res) {
-        if(err) throw err;
-      }
-    );
-    connection.query( // Last Name
-      "INSERT INTO employee SET ?",
-      {
-        last_name: lastName
+        first_name: firstName,
+        last_name: lastName,
+        manager_id: manager
       },
       function(err, res) {
         if(err) throw err;
@@ -69,16 +62,8 @@ function add(firstName, lastName, role, department, salary, manager) {
     connection.query( // Role
       "INSERT INTO role SET ?",
       {
-        title: role
-      },
-      function(err, res) {
-        if(err) throw err;
-      }
-    );
-    connection.query( // Salary
-      "INSERT INTO role SET ?",
-      {
-        title: salary
+        title: role,
+        salary: salary
       },
       function(err, res) {
         if(err) throw err;
@@ -87,16 +72,7 @@ function add(firstName, lastName, role, department, salary, manager) {
     connection.query( // Department
       "INSERT INTO department SET ?",
       {
-        name: department
-      },
-      function(err, res) {
-        if(err) throw err;
-      }
-    );
-    connection.query( // Manager
-      "INSERT INTO employee SET ?",
-      {
-        manager_id: manager
+        department: department
       },
       function(err, res) {
         if(err) throw err;
