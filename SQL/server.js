@@ -84,7 +84,7 @@ function add(firstName, lastName, role, department, salary, manager, departmentI
   }
 }
 
-function update(updatedTitle) {
+function update(updatedTitle, updateID) {
   const connection = mysql.createConnection({
     host: 'localhost',
     port: 3306,
@@ -108,7 +108,7 @@ function update(updatedTitle) {
         title: updatedTitle
       },
       { // Where
-        id: ""
+        id: updateID
       }
       ],
 

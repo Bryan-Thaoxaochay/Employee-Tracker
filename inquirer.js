@@ -65,7 +65,7 @@ function employeeManagement(arrayResult) {
                 name: 'employeeUpdate',
                 type: 'list',
                 message: 'Who do you want to update?',
-                choices: ['Alisson Becker', 'Mohamed Salah', 'Jurgen Klopp', 'Jordan Henderson'],
+                choices: ['Alisson', 'Mohamed', 'Jurgen', 'Jordan'],
                 when: (responses) => responses.purpose === 'Update Employee Role'
             },
             {
@@ -133,15 +133,36 @@ function employeeManagement(arrayResult) {
 
             // Update
             if (responses.purpose === 'Update Employee Role') {
-                // let updatedEmployee = responses.employeeUpdate;
-                let updatedTitle = responses.roleChange;
-                server.update(updatedTitle);
+                async function updates() {
+
+                    //Get matching ID in role to ID of employee where name is chosen
+
+                    let updatedEmployee = responses.employeeUpdate;
+                    let updatedTitle = responses.roleChange;
+
+                    if(updatedEmployee === 'Alisson'){
+                        let updateID = 1;
+                        await server.update(updatedTitle, updateID);
+                    }
+                    else if (updatedEmployee === 'Mohamed'){
+                        let updateID = 2;
+                        await server.update(updatedTitle, updateID);
+                    }
+                    else if (updatedEmployee === 'Jurgen'){
+                        let updateID = 3;
+                        await server.update(updatedTitle, updateID);
+                    }
+                    else if (updatedEmployee === 'Jordan'){
+                        let updateID = 4;
+                        await server.update(updatedTitle, updateID);
+                    };
+                }
+
+                updates();
             }
 
         }) // .then
 };
-const array = ['You', 'Me', 'Them']
-
 
 async function test() {
     const arrayResult = populateArray.updateArray;
