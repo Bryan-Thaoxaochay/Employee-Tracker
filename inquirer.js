@@ -1,8 +1,10 @@
 const inquirer = require('inquirer');
+const mysql = require('mysql');
+const util = require('util');
 const server = require('./SQL/server');
 const populateArray = require('./SQL/functions');
 
-function employeeManagement() {
+function employeeManagement(arrayResult) {
     inquirer
         .prompt([
             {
@@ -63,8 +65,7 @@ function employeeManagement() {
                 name: 'employeeUpdate',
                 type: 'list',
                 message: 'Who do you want to update?',
-                choices: populateArray.updateArray,
-                // choices: array,
+                choices: ['Alisson Becker', 'Mohamed Salah', 'Jurgen Klopp', 'Jordan Henderson'],
                 when: (responses) => responses.purpose === 'Update Employee Role'
             },
             {
@@ -132,7 +133,7 @@ function employeeManagement() {
 
             // Update
             if (responses.purpose === 'Update Employee Role') {
-                let updatedEmployee = responses.employeeUpdate;
+                // let updatedEmployee = responses.employeeUpdate;
                 let updatedTitle = responses.roleChange;
                 server.update(updatedTitle);
             }
@@ -143,11 +144,11 @@ const array = ['You', 'Me', 'Them']
 
 
 async function test() {
-    populateArray();
-    console.log(populateArray.updateArray);
-    await employeeManagement();
+    const arrayResult = populateArray.updateArray;
+    await console.log(arrayResult);
+    await employeeManagement(arrayResult);
 }
 
-test();
+// test();
 
-// employeeManagement();
+employeeManagement();
