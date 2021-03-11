@@ -53,7 +53,7 @@ function add(firstName, lastName, role, department, salary, manager, departmentI
       {
         first_name: firstName,
         last_name: lastName,
-        manager_id: manager
+        manager: manager
       },
       function(err, res) {
         if(err) throw err;
@@ -84,7 +84,7 @@ function add(firstName, lastName, role, department, salary, manager, departmentI
   }
 }
 
-function update() {
+function update(updatedTitle) {
   const connection = mysql.createConnection({
     host: 'localhost',
     port: 3306,
@@ -105,7 +105,7 @@ function update() {
       "UPDATE role SET ? WHERE ?",
       [
       {
-        title: ""
+        title: updatedTitle
       },
       { // Where
         id: ""

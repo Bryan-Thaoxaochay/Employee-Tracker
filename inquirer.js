@@ -1,5 +1,6 @@
 const inquirer = require('inquirer');
 const server = require('./SQL/server');
+const populateArray = require('./SQL/functions');
 
 function employeeManagement() {
     inquirer
@@ -54,14 +55,23 @@ function employeeManagement() {
                 name: 'eliminate',
                 type: 'list',
                 message: 'Who do you want to remove?',
-                choices: [ ],
+                // choices: [ ],
                 when: (responses) => responses.purpose === 'Remove Employee'
             },
             // Updating an employee - a list of who they want to update, update employee role
             {
+                name: 'employeeUpdate',
+                type: 'list',
+                message: 'Who do you want to update?',
+                choices: populateArray.updateArray,
+                // choices: array,
+                when: (responses) => responses.purpose === 'Update Employee Role'
+            },
+            {
                 name: 'roleChange',
-                type: 'input',
+                type: 'list',
                 message: 'What would you like to change their role to?',
+                choices: ['Coach', 'Striker', 'Winger', 'Centre-Midfielder', 'Outside-Midfielder', 'Centreback', 'Fullback', 'Keeper'],
                 when: (responses) => responses.purpose === 'Update Employee Role'
             },
         ]) // .prompt
@@ -122,10 +132,22 @@ function employeeManagement() {
 
             // Update
             if (responses.purpose === 'Update Employee Role') {
-                server.update();
+                let updatedEmployee = responses.employeeUpdate;
+                let updatedTitle = responses.roleChange;
+                server.update(updatedTitle);
             }
 
         }) // .then
+};
+const array = ['You', 'Me', 'Them']
+
+
+async function test() {
+    populateArray();
+    console.log(populateArray.updateArray);
+    await employeeManagement();
 }
 
-employeeManagement();
+test();
+
+// employeeManagement();
