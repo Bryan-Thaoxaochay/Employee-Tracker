@@ -31,7 +31,7 @@ function get() {
 
 
 
-function add(firstName, lastName, role, department, salary, manager) {
+function add(firstName, lastName, role, department, salary, manager, departmentID) {
   const connection = mysql.createConnection({
     host: 'localhost',
     port: 3306,
@@ -48,7 +48,7 @@ function add(firstName, lastName, role, department, salary, manager) {
 
   // Adding
   function addEmployee() {
-    connection.query( // First Name
+    connection.query( // Employee
       "INSERT INTO employee SET ?",
       {
         first_name: firstName,
@@ -63,7 +63,8 @@ function add(firstName, lastName, role, department, salary, manager) {
       "INSERT INTO role SET ?",
       {
         title: role,
-        salary: salary
+        salary: salary,
+        department_id: departmentID
       },
       function(err, res) {
         if(err) throw err;

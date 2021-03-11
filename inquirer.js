@@ -70,7 +70,15 @@ function employeeManagement() {
 
             // Get
             if (responses.purpose === 'View All Employees') {
-                server.get();
+                
+                async function getFunction () {
+                    server.get();
+
+                    await employeeManagement();
+                }
+
+                getFunction();
+
             }
 
             // Add
@@ -84,7 +92,23 @@ function employeeManagement() {
                     let salary = responses.salary;
                     let manager = responses.manager;
 
-                    await server.add(firstName, lastName, role, department, salary, manager);
+                    if(department === 'Management'){
+                        let departmentID = 4;
+                        await server.add(firstName, lastName, role, department, salary, manager, departmentID);
+                    }
+                    else if (department === 'Attacking'){
+                        let departmentID = 3;
+                        await server.add(firstName, lastName, role, department, salary, manager, departmentID);
+                    }
+                    else if (department === 'Midfield'){
+                        let departmentID = 2;
+                        await server.add(firstName, lastName, role, department, salary, manager, departmentID);
+                    }
+                    else if (department === 'Defending'){
+                        let departmentID = 1;
+                        await server.add(firstName, lastName, role, department, salary, manager, departmentID);
+                    };
+
                 }
 
                 employeeInfo();
