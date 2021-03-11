@@ -23,11 +23,8 @@ CREATE TABLE employee (
     id int not null auto_increment,
     first_name varchar(30),
     last_name varchar(30),
-    role_id int,
-    manager_id int,
-    primary key(id),
-    foreign key(role_id) REFERENCES role(id),
-    foreign key(manager_id) REFERENCES role(id)
+    manager varchar(30),
+    primary key(id)
 );
 
 INSERT INTO department (department)
@@ -55,14 +52,14 @@ INSERT INTO role (title, salary, department_id)
 VALUE ('Centre-Midfielder', 2500000, 2);
 
 
-INSERT INTO employee (first_name, last_name, manager_id)
-VALUE ('Alisson', 'Becker', 1);
+INSERT INTO employee (first_name, last_name, manager)
+VALUE ('Alisson', 'Becker', 'Jurgen Klopp');
 
-INSERT INTO employee (first_name, last_name, manager_id)
-VALUE ('Mohamed', 'Salah', 1);
+INSERT INTO employee (first_name, last_name, manager)
+VALUE ('Mohamed', 'Salah', 'Jurgen Klopp');
 
-INSERT INTO employee (first_name, last_name, manager_id)
+INSERT INTO employee (first_name, last_name, manager)
 VALUE ('Jurgen', 'Klopp', null);
 
-INSERT INTO employee (first_name, last_name, manager_id)
-VALUE ('Jordan', 'Henderson', 1);
+INSERT INTO employee (first_name, last_name, manager)
+VALUE ('Jordan', 'Henderson', 'Jurgen Klopp');
