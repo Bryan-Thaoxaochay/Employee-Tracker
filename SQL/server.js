@@ -11,7 +11,6 @@ function get() {
 
   connection.connect((err) => {
     if (err) throw err;
-    console.log(`connected as id ${connection.threadId}\n`);
     getEmployees();
   });
 
@@ -24,8 +23,8 @@ function get() {
     connection.query(sql, function(err, res) {
           if (err) throw err; // Catching error
           console.table(res); // Returns the response
-          connection.end();
     });
+    connection.end();
   }
 }
 
@@ -42,7 +41,6 @@ function add(firstName, lastName, role, department, salary, manager, departmentI
 
   connection.connect((err) => {
     if (err) throw err;
-    console.log(`connected as id ${connection.threadId}\n`);
     addEmployee();
   });
 
@@ -95,7 +93,6 @@ function update(updatedTitle, updateID) {
 
   connection.connect((err) => {
     if (err) throw err;
-    console.log(`connected as id ${connection.threadId}\n`);
     updateEmployee();
   });
 
@@ -118,7 +115,6 @@ function update(updatedTitle, updateID) {
       }
       
     );
-
     connection.end();
   }
 }

@@ -82,13 +82,15 @@ function employeeManagement(arrayResult) {
             // Get
             if (responses.purpose === 'View All Employees') {
                 
-                async function getFunction () {
-                    server.get();
+                // async function getFunction () {
+                //     server.get();
 
-                    await employeeManagement();
-                }
+                //     employeeManagement();
+                // }
 
-                getFunction();
+                // getFunction();
+
+                server.get();
 
             }
 
