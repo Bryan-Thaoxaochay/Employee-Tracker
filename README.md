@@ -6,13 +6,13 @@ The user can view and manage the departments, roles, and employees in a company.
 
 ## Technologies Used
 
-JavaScript, node.js, MySQL, Inquirer.js
+JavaScript, node.js, MySQL
 
 ## Links
 
 ### Video
 
-
+https://drive.google.com/file/d/1do7aKuCFEFRu1nrq_vjNj3v8JscU-4vF/view 
 
 ### Github Repo
 https://github.com/Bryan-Thaoxaochay/Employee-Tracker 
@@ -30,7 +30,7 @@ Async/await was very useful when running code that involved MySQL and the inquir
 
 3. Exporting Arrays
 
-I had to retrieve items from the table, exporting them into my inquirer.js, and placing them into the choices for one of my questions.
+I had to retrieve items from the table, exporting them into my inquirer.js, and placing them into the choices for one of my questions. However, I was unable to do this.
 
 4. Scope
 
